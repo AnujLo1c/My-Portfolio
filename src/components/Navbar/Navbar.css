@@ -1,0 +1,73 @@
+/* src/components/Navbar/Navbar.css */
+.navbar {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  will-change: transform, opacity;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+  padding: 0 18px;
+  gap: 12px;
+}
+
+/* nav links */
+.navbar .nav-link {
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.navbar .nav-link:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+  transition: transform 180ms ease;
+}
+
+.navbar .nav-link.active {
+  color: var(--accent);
+  background: rgba(255,255,255,0.06);
+}
+
+/* ensure brand color is visible in light/dark */
+.navbar, .navbar * {
+  color: var(--text);
+}
+
+/* small responsive */
+@media (max-width: 760px) {
+  .navbar {
+    padding: 0 12px;
+  }
+  .navbar .nav-link { padding: 6px 8px; font-size: 14px; }
+}
+.navbar {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  will-change: transform, opacity;
+}
+
+.navbar .nav-link {
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.navbar .nav-link:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  transition: transform 180ms;
+}
+
+.navbar .nav-link.active {
+  color: var(--accent);
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+}
+
+.navbar, .navbar * {
+  color: var(--text);
+}

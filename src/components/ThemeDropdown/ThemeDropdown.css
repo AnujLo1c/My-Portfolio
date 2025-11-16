@@ -1,0 +1,166 @@
+.theme-dropdown {
+  position: relative;
+}
+
+.theme-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background 0.25s ease;
+}
+
+.theme-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.dropdown-panel {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: var(--card);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  min-width: 130px;
+}
+
+.dropdown-item {
+  background: transparent;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.dropdown-item:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.dropdown-item.active {
+  background: var(--accent);
+  color: #fff;
+}
+.theme-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 8px;
+  display: inline-grid;
+  place-items: center;
+  transition: background 220ms ease, transform 180ms ease;
+  color: var(--muted); /* ring color default */
+}
+
+/* hover / focus ring */
+.theme-btn:hover,
+.theme-btn:focus {
+  background: rgba(255,255,255,0.04);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* SVG sizing inside the button */
+.theme-icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+/* map swatches to theme variables */
+.theme-icon .sw1 { fill: var(--sw1); }
+.theme-icon .sw2 { fill: var(--sw2); }
+.theme-icon .sw3 { fill: var(--sw3); }
+.theme-icon .sw4 { fill: var(--sw4); }
+
+/* subtle ring color tweak per theme — optional override (themed via :root vars too) */
+.theme-btn { color: rgba(100, 110, 140, 0.9); }
+
+/* neon tweak: stronger ring and glow */
+html[data-theme="neon"] .theme-btn {
+  color: var(--accent);
+  box-shadow: 0 4px 18px rgba(0,255,210,0.12);
+}
+
+/* add a gentle hover glow for neon */
+html[data-theme="neon"] .theme-btn:hover {
+  box-shadow: 0 6px 28px rgba(0,255,210,0.18);
+}
+
+/* spark animation (subtle) */
+@media (prefers-reduced-motion: no-preference) {
+  .theme-icon .spark { transform-origin: center; animation: spark-breathe 2.6s ease-in-out infinite; }
+  @keyframes spark-breathe {
+    0% { opacity: 0.6; transform: scale(0.9) translateY(0); }
+    50% { opacity: 1; transform: scale(1.05) translateY(-1.5px); }
+    100% { opacity: 0.6; transform: scale(0.9) translateY(0); }
+  }
+}
+
+/* make the dropdown panel slightly adapt to theme */
+.dropdown-panel {
+  background: var(--card);
+  color: var(--text);
+}
+/* ============================================
+   DARK THEME — Inner Glow Dropdown Panel
+   ============================================ */
+html[data-theme="dark"] .dropdown-panel {
+  background: rgba(15, 23, 42, 0.70); /* dark navy base */
+  color: #e2e8f0; /* light grey text */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow:
+    inset 0 0 6px rgba(255, 255, 255, 0.10),   /* inner glow */
+    0 6px 20px rgba(0, 0, 0, 0.45);            /* outer shadow */
+  backdrop-filter: blur(12px);
+}
+
+/* hovering items look clean */
+html[data-theme="dark"] .dropdown-item:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* active item matches dark accent */
+html[data-theme="dark"] .dropdown-item.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+
+/* ============================================
+   NEON THEME — Greyish Text + Neon Edges
+   ============================================ */
+html[data-theme="neon"] .dropdown-panel {
+  background: rgba(6, 16, 34, 0.65); /* dark blue neon base */
+  color: #cbd5e1; /* GREYISH text as you requested */
+  border: 1px solid var(--accent); /* neon edge */
+  box-shadow:
+    0 0 14px rgba(0,255,210,0.25),
+    0 0 30px rgba(0,255,210,0.15);
+  backdrop-filter: blur(14px);
+}
+
+/* neon hover */
+html[data-theme="neon"] .dropdown-item:hover {
+  background: rgba(0,255,210,0.12);
+  color: var(--accent);
+}
+
+/* neon active */
+html[data-theme="neon"] .dropdown-item.active {
+  background: var(--accent);
+  color: #04121e;
+  box-shadow:
+    0 0 12px rgba(0,255,210,0.45);
+}
