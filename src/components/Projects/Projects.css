@@ -1,0 +1,146 @@
+.projects-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 20px;
+}
+
+/* Title */
+.projects-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+  color: var(--text);
+}
+
+.projects-title .underline {
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  border-radius: 4px;
+  transition: width .45s ease;
+}
+
+.reveal.visible .projects-title .underline { width: 60%; }
+
+/* Theme underline colors */
+html[data-theme="light"] .projects-title .underline {
+  background: linear-gradient(90deg,#0ea5e9,#7c3aed);
+}
+html[data-theme="dark"] .projects-title .underline {
+  background: linear-gradient(90deg,#7c3aed,#60a5fa);
+}
+html[data-theme="colorful"] .projects-title .underline {
+  background: linear-gradient(90deg,#ff9a9e,#fbc2eb,#a18cd1);
+}
+html[data-theme="neon"] .projects-title .underline {
+  background: #00ffd1;
+  box-shadow: 0 0 10px #00ffd1;
+}
+
+/* GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+@media(max-width: 1000px) {
+  .projects-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media(max-width: 700px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* CARD */
+.project-card {
+  position: relative;
+  padding: 22px;
+  height: 180px;
+  border-radius: 18px;
+  background: var(--card);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: .3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.15);
+}
+
+/* Title + Tags */
+.card-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+/* Fade out card content on hover */
+.project-card:hover .card-content {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+.card-content {
+  transition: .3s ease;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tags span {
+  padding: 5px 10px;
+  font-size: 13px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.15);
+  color: var(--text);
+}
+html[data-theme="light"] .tags span {
+  background: rgba(0,0,0,0.06);
+}
+
+/* Hover Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  padding: 22px;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  opacity: 0;
+  transition: .35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card:hover .overlay { opacity: 1; }
+
+.overlay p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* GitHub button */
+.view-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  width: fit-content;
+}
+
+html[data-theme="neon"] .overlay {
+  background: rgba(0,255,209,0.08);
+  backdrop-filter: blur(6px);
+  border: 1px solid #00ffd1;
+  color: #e8ffff;
+}

@@ -10,6 +10,7 @@
 html, body, #root {
   height: 100%;
   width: 100%;
+   overflow: hidden;
 }
 
 /* Remove any accidental flex on body */
@@ -42,7 +43,7 @@ body {
   --max-width: 1200px; /* real usable size */
 }
 
-/* LIGHT THEME */
+/* LIGHT THEME */ 
 html[data-theme="light"] {
   --bg: linear-gradient(135deg, #ffffff, #f5f7fa, #e9eef7);
   --text: #0b1220;
@@ -83,27 +84,8 @@ body {
 }
 
 
-/* --------------------------------
-   NAVBAR
---------------------------------*/
-.navbar {
-  position: fixed;
-  inset: 0 0 auto 0;
-  height: var(--nav-height);
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 
-  padding: 0 24px;
-  z-index: 999;
-
-  backdrop-filter: blur(8px);
-  border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;
-
-  transition: 0.4s ease;
-}
 
 /* theme-specific nav background */
 html[data-theme="light"] .navbar {
@@ -128,25 +110,18 @@ html[data-theme="neon"] .navbar {
 --------------------------------*/
 main {
   scroll-snap-type: y mandatory;
-  scroll-padding-top: var(--nav-height);
+  /* scroll-padding-top: var(--nav-height); */
   width: 100%;
 }
 
 
-section {
-  min-height: 100vh;
-  scroll-snap-align: start;
-  display: block;
-  width: 100%;
-  scroll-margin-top: var(--nav-height);
-}
 
 /* --------------------------------
-   GLOBAL CONTAINER
+   GLOBAL 
 --------------------------------*/
 .container {
   max-width: var(--max-width);
-  margin: 0 auto;
+  
   width: 100%;
   padding: 0 20px;
 }
@@ -190,13 +165,13 @@ html[data-theme="neon"] .btn {
 }
 
 /* --------------------------------
-   CONTACT SECTION FIXED CENTERING
+   CONTACT  FIXED CENTERING
 --------------------------------*/
 section#contact {
   display: flex !important;
   justify-content: center !important;
   align-items: flex-start !important;
-  padding-top: calc(var(--nav-height) + 40px);
+  /* padding-top: calc(var(--nav-height) + 40px); */
 }
 /* Fix navbar text per theme */
 .navbar, 
@@ -219,26 +194,32 @@ html, body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
+.cursor {
+  border-right: 2px solid #fff;
+  animation: blink 0.7s infinite;
+}
+* {
+  caret-color: transparent !important;
+}
 
-/* MAIN scroll container */
+
 main {
   height: 100vh;
   width: 100%;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
-  scroll-padding-top: var(--nav-height); /* navbar offset */
+  /* scroll-padding-top: var(--nav-height); */
 }
 
 
-/* EVERY FULL-PAGE SECTION */
-/* FULL PAGE SECTIONS — FIX DOWNWARD SNAP */
-/* Full-screen sections with perfect snapping */
+
 section {
   height: 100vh;
   min-height: 100vh;
 
   width: 100%;
-  scroll-snap-align: start;
+ scroll-snap-align: start;
+
 
   display: flex;
   justify-content: center;
@@ -246,7 +227,7 @@ section {
 
   background: var(--bg);
 
-  overflow: hidden;      /* keeps section exactly 100vh */
+  overflow: hidden;      
   position: relative;     /* for any future decorations */
   padding: 0;             /* no inner offset */
   margin: 0;              /* no outer offset */

@@ -1,0 +1,87 @@
+/* CLEAN HERO LAYOUT */
+.hero-clean {
+  width: 100%;
+  height: calc(100vh - var(--nav-height));
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left — decorative empty space */
+.hero-left-clean {
+  height: 100%;
+  width: 100%;
+  background: transparent; /* We can add gradient, shapes later */
+}
+
+/* Right content */
+.hero-right {
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.intro {
+  font-size: 22px;
+  color: var(--muted);
+}
+
+.name {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.headline {
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+.subtext {
+  font-size: 20px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.social-row {
+  margin-top: 28px;
+  display: flex;
+  gap: 18px;
+}
+
+.social-row a {
+  font-size: 32px;
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+.social-row a:hover {
+  color: var(--accent);
+  transform: translateY(-4px);
+}
+
+/* Mobile layout */
+@media (max-width: 900px) {
+  .hero-clean {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .hero-right {
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-left-clean {
+    display: none;
+  }
+}
