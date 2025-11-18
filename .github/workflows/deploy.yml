@@ -2,31 +2,36 @@ name: Deploy Portfolio
 
 on:
   push:
-    branches: [ main ]   # builds every time you push to main
+    branches: [ main ]   # deploy every time code is pushed to main
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      # 1. Checkout repo
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      # 2. Setup Node (using Node 24 LTS)
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '24'
+          cache: 'npm'
 
+      # 3. Install dependencies
       - name: Install Dependencies
         run: npm install
 
+      # 4. Build the Vite app
       - name: Build the App
         run: npm run build
 
+      # 5. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-
-
+          publish_dir: ./dist       # VITE OUTPUT FOLDER
+          force_orphan: true        # clean gh-pages branch for Vite
