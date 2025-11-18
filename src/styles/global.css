@@ -90,6 +90,7 @@ body {
 
 
 
+
 /* theme-specific nav background */
 html[data-theme="light"] .navbar {
   background: rgba(255, 255, 255, 0.4);
