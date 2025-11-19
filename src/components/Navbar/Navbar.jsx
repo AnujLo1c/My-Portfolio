@@ -197,9 +197,7 @@ if (diff > SENSITIVITY) {
         </button>
       ))}
       {/* MOBILE THEME TEXT */}
-    <button className="nav-link">
-      Theme
-    </button>
+    <ThemeDropdown />
       {/* <ThemeDropdown /> */}
     </div>
   )}
