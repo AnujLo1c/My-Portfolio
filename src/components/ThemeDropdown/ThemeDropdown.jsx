@@ -1,31 +1,22 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import ThemeDropdown from "../ThemeDropdown/ThemeDropdown";
-import "./ThemeDropdown.css";
+import React, { useState, useRef, useEffect } from "react"
+import useTheme from "../../hooks/useTheme"
+import "./ThemeDropdown.css"
 
+export default function ThemeDropdown() {
+  const { theme, setTheme, THEMES } = useTheme()
+  const [open, setOpen] = useState(false)
+  const dropdownRef = useRef(null)
 
-const sections = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "skills", label: "Skills" },
-  { id: "projects", label: "Projects" },
-  { id: "resume", label: "Resume" },
-  { id: "certification", label: "Certification" },
-  { id: "contact", label: "Contact" },
-];
-
-export default function Navbar() {
-  const [showNav, setShowNav] = useState(true);
-  const [active, setActive] = useState("home");
-  const [open, setOpen] = useState(false);
-  const [themeOpen, setThemeOpen] = useState(false);
-
-  const lastScroll = useRef(0);
-
-  const handleClick = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
 
   return (
     <div className="theme-dropdown" ref={dropdownRef}>
@@ -63,28 +54,23 @@ export default function Navbar() {
   <div className="theme-text-wrapper" >Theme</div>
 </button>
 
-                {themeOpen && (
-                  <div className="mobile-theme-list">
-                    {["light", "dark", "neon", "solar"].map((t) => (
-                      <button
-                        key={t}
-                        className="mobile-theme-item"
-                        onClick={() => {
-                          document.documentElement.setAttribute("data-theme", t);
-                          setOpen(false);       // close menu
-                          setThemeOpen(false);  // collapse
-                        }}
-                      >
-                        {t.charAt(0).toUpperCase() + t.slice(1)}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-        </motion.nav>
+
+      {open && (
+        <div className="dropdown-panel">
+          {THEMES.map(t => (
+            <button
+              key={t}
+              className={`dropdown-item ${theme === t ? "active" : ""}`}
+              onClick={() => {
+                setTheme(t)
+                setOpen(false)
+              }}
+            >
+              {t.charAt(0).toUpperCase() + t.slice(1)}
+            </button>
+          ))}
+        </div>
       )}
-    </AnimatePresence>
-  );
+    </div>
+  )
 }
