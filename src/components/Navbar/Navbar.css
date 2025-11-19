@@ -48,30 +48,155 @@
 /* ===========================
    RESPONSIVE
 =========================== */
-@media (max-width: 760px) {
-  .navbar {
-    padding: 0 12px;
-  }
-  .navbar .nav-link {
-    padding: 6px 8px;
-    font-size: 14px;
-  }
-}
+
 .navbar {
   position: fixed;
   top: 0;
   left: 7%;
-  width: 100vw;              /* FULL WIDTH */
-  height: var(--nav-height);
+  right: 7%;
+  width: 100vw;              
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 12px;
   z-index: 999;
-
   backdrop-filter: blur(8px);
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;
   transition: 0.4s ease;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;                 /* FULL WIDTH */
+  right: 0;                /* FULL WIDTH */
+  width: 100%;             /* FULL WIDTH */
+
+  height: var(--nav-height);
+  display: flex;
+  align-items: space between;
+  justify-content: space-between;
+
+  padding: 0 16px;
+  z-index: 999;
+
+  backdrop-filter: blur(8px);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: 0.4s ease;
+}
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+ 
+  cursor: pointer;
+}
+
+.logo-full {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+/* Hide hamburger on desktop */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Mobile menu styling */
+.mobile-menu {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: var(--bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.right-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* HAMBURGER HIDDEN ON DESKTOP */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  position: absolute;
+  top: 64px;
+  right: 20px;
+  background: var(--bg);
+  padding: 14px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+/* RESPONSIVE RULES */
+@media (max-width: 700px) {
+
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
+
+
+@media (max-width: 840px) {
+  .navbar {
+    padding: 0 12px;
+  }
+  .navbar .nav-link {
+    padding: 2px 5px;
+    
+  }
+}
+@media (max-width: 760px) {
+ .navbar .nav-link {
+    padding: 2px 5px;
+    font-size: 14px;
+  }
+  
+}
+@media (max-width: 720px) {
+ .navbar .nav-link {
+    padding: 2px 3px;
+    font-size: 14px;
+  }
+  .logo-full{
+    font-size: 20px;
+  }
+  .nav-links {
+    display: none; /* hide desktop menu */
+  }
+  .theme-desktop {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: block; /* show mobile icon */
+  }
 }

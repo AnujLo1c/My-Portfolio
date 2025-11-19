@@ -18,6 +18,7 @@ const sections = [
 export default function Navbar() {
   const [showNav, setShowNav] = useState(true);
   const [active, setActive] = useState("home");
+const [open, setOpen] = useState(false);
 
   const lastScroll = useRef(0);
   const ticking = useRef(false);
@@ -136,7 +137,7 @@ if (diff > SENSITIVITY) {
       {showNav && (
         <motion.nav
           key="navbar"
-          className="navbar container"
+          className="navbar "
           initial={{ y: -90, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -90, opacity: 0 }}
@@ -146,42 +147,65 @@ if (diff > SENSITIVITY) {
             console.log("[DEBUG] Navbar animation COMPLETE")
           }
         >
-          {/* BRAND */}
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div
-              style={{
-                fontSize: 24,
-                fontWeight: 700,
-                letterSpacing: 0.4,
-              }}
-            >
-              Anuj Lowanshi
-            </div>
-          </div>
 
-          {/* NAV LINKS */}
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div
-              style={{
-                display: "flex",
-                gap: 6,
-                alignItems: "center",
-              }}
-            >
-              {sections.map((s) => (
-                <button
-                  key={s.id}
-                  className={`nav-link ${active === s.id ? "active" : ""}`}
-                  onClick={() => handleClick(s.id)}
-                >
-                  {s.label}
-                </button>
-              ))}
-            </div>
+  {/* BRAND */}
+  <div className="brand">
+    <span className="logo-full">Anuj Lowanshi</span>
+    
+  </div>
 
-            {/* THEME SWITCHER */}
-            <ThemeDropdown />
-          </div>
+  {/* RIGHT SIDE */}
+  <div className="right-wrapper">
+    {/* DESKTOP LINKS */}
+    <div className="nav-links">
+      {sections.map((s) => (
+        <button
+          key={s.id}
+          className={`nav-link ${active === s.id ? "active" : ""}`}
+          onClick={() => handleClick(s.id)}
+        >
+          {s.label}
+        </button>
+      ))}
+    </div>
+
+    {/* THEME SWITCHER */}
+   <div className="theme-desktop">
+  <ThemeDropdown />
+</div>
+
+
+    {/* HAMBURGER */}
+    <div className="hamburger" onClick={() => setOpen(!open)}>
+      ☰
+    </div>
+  </div>
+
+  {/* MOBILE MENU */}
+  {open && (
+    <div className="mobile-menu">
+      {sections.map((s) => (
+        <button
+          key={s.id}
+          className={`nav-link ${active === s.id ? "active" : ""}`}
+          onClick={() => {
+            handleClick(s.id);
+            setOpen(false);
+          }}
+        >
+          {s.label}
+        </button>
+      ))}
+      {/* MOBILE THEME TEXT */}
+    <button className="nav-link">
+      Theme
+    </button>
+      {/* <ThemeDropdown /> */}
+    </div>
+  )}
+
+
+
         </motion.nav>
       )}
     </AnimatePresence>

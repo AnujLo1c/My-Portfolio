@@ -14,7 +14,7 @@
   max-width: 760px;
   width: 100%;
   margin: 0 auto; /* **Crucial:** Centers the card within its parent (contact-wrapper) */
-  padding: 26px 36px 32px;
+  padding: 76px 36px 32px;
   display: flex;
   flex-direction: column;
 }
@@ -237,34 +237,23 @@ html {
   display: block;
 }
 
-/* 5) If some other rule is forcing different padding, make this very specific */
-/* section#contact .contact-wrapper,
-section#contact .contact-card {
-  padding-top: calc(var(--nav-height)) !important;
-} */
-/* Fix section flex misalignment caused by global section styles */
-/* section#contact {
-  padding: 0 !important;
-  margin: 0 !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-} */
+
 
 .contact-wrapper {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;      /* horizontal center */
-  padding-top: calc(var(--nav-height) + 10px);
+  padding-top: 30;
   padding-bottom: 20px;
 }
 
 .contact-wrapper {
   width: 100%;
   max-width: 820px;
-  margin: 0 auto;           /* horizontal center */
+  margin: 50 auto;           /* horizontal center */
   padding-top: 20px;        /* spacing above card */
   padding-bottom: 20px;
+
   display: flex;
   justify-content: center;  /* center card inside wrapper */
 }

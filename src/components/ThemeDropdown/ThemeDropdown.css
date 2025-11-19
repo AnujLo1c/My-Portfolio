@@ -164,3 +164,24 @@ html[data-theme="neon"] .dropdown-item.active {
   box-shadow:
     0 0 12px rgba(0,255,210,0.45);
 }
+
+.theme-text-wrapper{
+  display: none;
+ 
+ 
+
+
+}
+@media (max-width: 720px) {
+.theme-icon-wrapper{
+  display: none !important;
+}
+theme-text-wrapper{
+  display: block !important;
+}
+ .theme-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+  }
+}
