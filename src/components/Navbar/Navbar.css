@@ -60,7 +60,7 @@
 .navbar {
   position: fixed;
   top: 0;
-  left: 5%;
+  left: 7%;
   width: 100vw;              /* FULL WIDTH */
   height: var(--nav-height);
   transform: translateX(-50%);

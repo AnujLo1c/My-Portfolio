@@ -7,6 +7,7 @@
 
 /* Title */
 .resume-title {
+  
   font-size: 36px;
   font-weight: 800;
   margin-bottom: 30px;
@@ -22,6 +23,7 @@
   bottom: -6px;
   left: 0;
   width: 0%;
+   background: linear-gradient(90deg, #0ea5e9, #7c3aed);
   height: 4px;
   border-radius: 4px;
   transition: width 0.45s ease;
@@ -86,9 +88,12 @@ html[data-theme="neon"] .experience-card h3 {
 }
 
 /* Neon glowing border */
-html[data-theme="neon"] .experience-card {
+html[data-theme="neon"] .resume-title .underline {
+
   border: 1px solid #00ffd1;
   box-shadow:
     0 0 12px rgba(0,255,210,0.4),
     0 0 22px rgba(0,255,210,0.18);
+     background: var(--accent);   /* make it visible */
+  display: block;  
 }

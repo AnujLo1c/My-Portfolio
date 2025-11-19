@@ -28,16 +28,9 @@ export default function Navbar() {
 useEffect(() => {
   const mainEl = document.getElementById("page-main");
 
-  if (!mainEl) {
-    console.log("[DEBUG] ERROR: #page-main NOT FOUND");
-    return;
-  }
-
-  console.log("[DEBUG] Listener attached to <main>");
-
+  
   const handleScroll = () => {
-    console.log("[DEBUG] SCROLL fired → main.scrollTop =", mainEl.scrollTop);
-
+   
     if (ticking.current) return;
     ticking.current = true;
 
@@ -46,15 +39,26 @@ useEffect(() => {
       const previous = lastScroll.current;
 
       const diff = current - previous;
-      const SENSITIVITY = 10;
+      const SENSITIVITY = 20;
 
-      if (diff > SENSITIVITY && current > 50) {
-        console.log("[DEBUG] → DOWN → hide navbar");
-        setShowNav(false);
-      } else if (diff < -SENSITIVITY) {
-        console.log("[DEBUG] → UP → show navbar");
-        setShowNav(true);
-      }
+    
+const heroHeight = document.getElementById("home")?.offsetHeight || 500;
+
+// 2️⃣ IF USER IS IN HERO → ALWAYS SHOW NAVBAR
+if (current < heroHeight - 50) {
+  setShowNav(true);
+  lastScroll.current = current;
+  ticking.current = false;
+  return;
+}
+
+// 3️⃣ NORMAL AUTO-HIDE AFTER HERO SECTION
+if (diff > SENSITIVITY) {
+  setShowNav(false); // scrolling down
+} else if (diff < -SENSITIVITY) {
+  setShowNav(true);  // scrolling up
+}
+
 
       lastScroll.current = current;
       ticking.current = false;
