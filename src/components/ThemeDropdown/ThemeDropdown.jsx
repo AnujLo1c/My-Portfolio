@@ -27,8 +27,7 @@ export default function ThemeDropdown() {
   aria-haspopup="true"
   aria-expanded={open}
 >
-  <div className="theme-icon-wrapper">
-  <svg  viewBox="0 0 48 48" width="30" height="30" aria-hidden="true" focusable="false" className="theme-icon">
+  <svg viewBox="0 0 48 48" width="30" height="30" aria-hidden="true" focusable="false" className="theme-icon">
     <defs>
       <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
         <feGaussianBlur stdDeviation="2.2" result="blur"/>
@@ -50,8 +49,6 @@ export default function ThemeDropdown() {
       <path d="M0 -3 L1 -1 L3 0 L1 1 L0 3 L-1 1 L-3 0 L-1 -1 Z" fill="currentColor" opacity="0.9" transform="scale(0.6)"/>
     </g>
   </svg>
-  </div>
-  <div className="theme-text-wrapper" >Theme</div>
 </button>
 
 
