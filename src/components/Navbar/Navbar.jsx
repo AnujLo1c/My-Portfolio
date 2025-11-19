@@ -26,20 +26,20 @@ const themeColor = (theme) => {
   }
 };
 
-export default function Navbar() {
+// ...existing code...
 
-  // from your theme system
+export default function Navbar() {
   const { theme, setTheme, THEMES } = useTheme();
 
   const [showNav, setShowNav] = useState(true);
   const [active, setActive] = useState("home");
   const [open, setOpen] = useState(false);
-  const [themeOpen, setThemeOpen] = useState(false);   // <-- REQUIRED
+  const [themeOpen, setThemeOpen] = useState(false);
 
   const lastScroll = useRef(0);
   const ticking = useRef(false);
 
-  /* scroll hide logic (unchanged) */
+  /* scroll hide & active section update */
   useEffect(() => {
     const mainEl = document.getElementById("page-main");
     if (!mainEl) return;
@@ -58,6 +58,7 @@ export default function Navbar() {
 
         if (current < heroHeight - 50) {
           setShowNav(true);
+          setActive("home");
           lastScroll.current = current;
           ticking.current = false;
           return;
@@ -67,6 +68,18 @@ export default function Navbar() {
           setShowNav(false);
         } else if (diff < -SENSITIVITY) {
           setShowNav(true);
+        }
+
+        // Update active section based on scroll position
+        for (let section of sections) {
+          const el = document.getElementById(section.id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 150 && rect.bottom > 150) {
+              setActive(section.id);
+              break;
+            }
+          }
         }
 
         lastScroll.current = current;
@@ -81,9 +94,12 @@ export default function Navbar() {
   const handleClick = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    setActive(id);  // <-- ADD THIS
     setOpen(false);
     setThemeOpen(false);
   };
+
+  // ...rest of code...
 
   return (
     <AnimatePresence>

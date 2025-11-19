@@ -1,19 +1,4 @@
 /* ===========================
-   NAVBAR (CLEAN & CENTERED)
-=========================== */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* FULLY CENTERED */
-  height: var(--nav-height);
-  width: 100%;
-  padding: 0 18px;
-  gap: 12px;
-  transition: transform 0.35s ease, opacity 0.35s ease;
-  will-change: transform, opacity;
-}
-
-/* ===========================
    NAVBAR BASE
 =========================== */
 .navbar {
@@ -26,14 +11,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
+ 
   z-index: 999;
   font-size: 21px;
   backdrop-filter: blur(8px);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
   transition: 0.4s ease;
   will-change: transform, opacity;
+  color: var(--text);
 }
 
 /* ===========================
@@ -50,6 +34,7 @@
   font-size: 26px;
   font-weight: 700;
   letter-spacing: 0.4px;
+  margin-left: 10px;
 }
 
 /* ===========================
@@ -57,18 +42,19 @@
 =========================== */
 .nav-links {
   display: flex;
-  gap: 12px;
+  gap: 42px;
+  
 }
 
 .nav-link {
   background: transparent;
   border: none;
   font-weight: 600;
+  font-size: 20px;
   cursor: pointer;
   color: var(--muted);
   padding: 8px 1px;
   border-radius: 8px;
-  margin: 0;
   transition: opacity 0.2s, transform 0.2s;
 }
 
@@ -88,6 +74,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-right: 10px;
 }
 
 /* ===========================
@@ -95,7 +82,7 @@
 =========================== */
 .hamburger {
   display: none;
-  font-size: 28px;
+  font-size: 20px;
   cursor: pointer;
   user-select: none;
 }
@@ -105,14 +92,15 @@
 =========================== */
 .mobile-menu {
   position: absolute;
-  top: 64px;
+  top: 34px;
   right: 20px;
   background: var(--bg);
   padding: 16px;
+  padding-top: 6px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
@@ -132,7 +120,7 @@
   text-align: left;
   font-size: 14px;
   font-weight: 600;
-  color: var(--text);
+
   width: 100%;
   cursor: pointer;
   padding: 0;
@@ -165,45 +153,67 @@
 }
 
 /* ===========================
-   COLOR INHERIT
-=========================== */
-.navbar,
-.navbar * {
-  color: var(--text);
-}
-
-/* ===========================
    RESPONSIVE RULES
 =========================== */
-@media (max-width: 840px) {
+@media (max-width: 1150px) {
   .navbar {
-    padding: 0 12px;
+     padding: 0px 14px;
   }
-  .nav-link {
-    padding: 6px 10px;
-  }
-}
-
-@media (max-width: 760px) {
-  .nav-link {
-    padding: 2px 5px;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 720px) {
-  .nav-link {
+  .nav-links {
     padding: 2px 3px;
-    font-size: 14px;
+    gap: 25px;
+  }
+}
+@media (max-width: 1020px) {
+.nav-links{
+  gap: 12px;
+}
+}
+
+
+@media (max-width: 920px) {
+  .navbar {
+     padding: 4px 14px;
+  }
+  .nav-links {
+    padding: 2px 5px;
+    
+    gap: 10px;
+  }
+  .nav-link{
+    font-size: 17px;
   }
   .logo-full {
     font-size: 20px;
   }
+}
+
+@media (max-width: 810px) {
+  
+  .nav-links {
+    padding: 0px 3px;
+    font-size: 16px;
+  }
+  .navbar{
+    height: var(--nav-height)-6;
+  }
+  .logo-full {
+    font-size: 20px;
+  }
+}
+@media (max-width: 750px) {
   .nav-links,
   .theme-desktop {
     display: none !important;
+   
+  }
+  .brand {
+    
+  padding: 5px 0px 5px 0px;
   }
   .hamburger {
     display: block;
   }
 }
+
+
