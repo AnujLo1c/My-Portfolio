@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeDropdown from "../ThemeDropdown/ThemeDropdown";
-
+import useTheme from "../../hooks/useTheme";   // <-- IMPORTANT
 import "./Navbar.css";
 
 const sections = [
@@ -15,196 +15,163 @@ const sections = [
   { id: "contact", label: "Contact" },
 ];
 
+// Color preview for mobile theme buttons
+const themeColor = (theme) => {
+  switch (theme) {
+    case "light": return "#b9d9f9ff";
+    case "dark": return "#323233ff";
+    case "neon": return "#00ffccff";
+    case "colorful": return "#fd9696ff";
+    default: return "#aaa";
+  }
+};
+
 export default function Navbar() {
+
+  // from your theme system
+  const { theme, setTheme, THEMES } = useTheme();
+
   const [showNav, setShowNav] = useState(true);
   const [active, setActive] = useState("home");
-const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [themeOpen, setThemeOpen] = useState(false);   // <-- REQUIRED
 
   const lastScroll = useRef(0);
   const ticking = useRef(false);
 
-  /* ------------------------------------------------------------------
-     🟦 DEBUG 1 — Scroll Listener + Scroll Direction
-  --------------------------------------------------------------------*/
-useEffect(() => {
-  const mainEl = document.getElementById("page-main");
-
-  
-  const handleScroll = () => {
-   
-    if (ticking.current) return;
-    ticking.current = true;
-
-    requestAnimationFrame(() => {
-      const current = mainEl.scrollTop;
-      const previous = lastScroll.current;
-
-      const diff = current - previous;
-      const SENSITIVITY = 20;
-
-    
-const heroHeight = document.getElementById("home")?.offsetHeight || 500;
-
-// 2️⃣ IF USER IS IN HERO → ALWAYS SHOW NAVBAR
-if (current < heroHeight - 50) {
-  setShowNav(true);
-  lastScroll.current = current;
-  ticking.current = false;
-  return;
-}
-
-// 3️⃣ NORMAL AUTO-HIDE AFTER HERO SECTION
-if (diff > SENSITIVITY) {
-  setShowNav(false); // scrolling down
-} else if (diff < -SENSITIVITY) {
-  setShowNav(true);  // scrolling up
-}
-
-
-      lastScroll.current = current;
-      ticking.current = false;
-    });
-  };
-
-  mainEl.addEventListener("scroll", handleScroll, { passive: true });
-
-  return () => {
-    mainEl.removeEventListener("scroll", handleScroll);
-    console.log("[DEBUG] Listener removed from <main>");
-  };
-}, []);
-
-  /* ------------------------------------------------------------------
-     🟩 DEBUG 2 — showNav state tracker
-  --------------------------------------------------------------------*/
+  /* scroll hide logic (unchanged) */
   useEffect(() => {
-    console.log("[DEBUG] showNav STATE =", showNav ? "VISIBLE" : "HIDDEN");
-  }, [showNav]);
+    const mainEl = document.getElementById("page-main");
+    if (!mainEl) return;
 
-  /* ------------------------------------------------------------------
-     🟨 DEBUG 3 — Active section tracking
-  --------------------------------------------------------------------*/
-  useEffect(() => {
-    const elements = sections.map((s) => document.getElementById(s.id));
+    const handleScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            console.log("[DEBUG] Active section:", entry.target.id);
-            setActive(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-40% 0px -40% 0px", threshold: 0 }
-    );
+      requestAnimationFrame(() => {
+        const current = mainEl.scrollTop;
+        const previous = lastScroll.current;
+        const diff = current - previous;
+        const SENSITIVITY = 20;
 
-    elements.forEach((el) => el && observer.observe(el));
-    console.log("[DEBUG] IntersectionObserver attached");
+        const heroHeight = document.getElementById("home")?.offsetHeight || 500;
 
-    return () => {
-      observer.disconnect();
-      console.log("[DEBUG] IntersectionObserver detached");
+        if (current < heroHeight - 50) {
+          setShowNav(true);
+          lastScroll.current = current;
+          ticking.current = false;
+          return;
+        }
+
+        if (diff > SENSITIVITY) {
+          setShowNav(false);
+        } else if (diff < -SENSITIVITY) {
+          setShowNav(true);
+        }
+
+        lastScroll.current = current;
+        ticking.current = false;
+      });
     };
+
+    mainEl.addEventListener("scroll", handleScroll);
+    return () => mainEl.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* ------------------------------------------------------------------
-     🟧 DEBUG 4 — DOM existence & duplicate navbars check
-  --------------------------------------------------------------------*/
-  useEffect(() => {
-    const count = document.querySelectorAll(".navbar").length;
-    console.log(`[DEBUG] Navbar elements in DOM: ${count}`);
-  });
-
-  /* ------------------------------------------------------------------
-     Smooth scroll on nav click
-  --------------------------------------------------------------------*/
   const handleClick = (id) => {
-    console.log("[DEBUG] Nav clicked →", id);
     const el = document.getElementById(id);
-    if (!el) {
-      console.log("[DEBUG] ERROR → Section ID not found:", id);
-      return;
-    }
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    setOpen(false);
+    setThemeOpen(false);
   };
 
-  /* ------------------------------------------------------------------
-     🟥 DEBUG 5 — AnimatePresence mount/unmount
-  --------------------------------------------------------------------*/
   return (
     <AnimatePresence>
       {showNav && (
         <motion.nav
           key="navbar"
-          className="navbar "
+          className="navbar"
           initial={{ y: -90, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -90, opacity: 0 }}
           transition={{ duration: 0.25 }}
-          onAnimationStart={() => console.log("[DEBUG] Navbar animation START")}
-          onAnimationComplete={() =>
-            console.log("[DEBUG] Navbar animation COMPLETE")
-          }
         >
+          {/* BRAND */}
+          <div className="brand">
+            <span className="logo-full">Anuj Lowanshi</span>
+          </div>
 
-  {/* BRAND */}
-  <div className="brand">
-    <span className="logo-full">Anuj Lowanshi</span>
-    
-  </div>
+          {/* RIGHT SIDE */}
+          <div className="right-wrapper">
 
-  {/* RIGHT SIDE */}
-  <div className="right-wrapper">
-    {/* DESKTOP LINKS */}
-    <div className="nav-links">
-      {sections.map((s) => (
-        <button
-          key={s.id}
-          className={`nav-link ${active === s.id ? "active" : ""}`}
-          onClick={() => handleClick(s.id)}
-        >
-          {s.label}
-        </button>
-      ))}
-    </div>
+            {/* DESKTOP NAV LINKS */}
+            <div className="nav-links">
+              {sections.map((s) => (
+                <button
+                  key={s.id}
+                  className={`nav-link ${active === s.id ? "active" : ""}`}
+                  onClick={() => handleClick(s.id)}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
 
-    {/* THEME SWITCHER */}
-   <div className="theme-desktop">
-  <ThemeDropdown />
-</div>
+            {/* DESKTOP THEME DROPDOWN */}
+            <div className="theme-desktop">
+              <ThemeDropdown />
+            </div>
 
+            {/* HAMBURGER MENU */}
+            <div className="hamburger" onClick={() => setOpen(!open)}>
+              ☰
+            </div>
+          </div>
 
-    {/* HAMBURGER */}
-    <div className="hamburger" onClick={() => setOpen(!open)}>
-      ☰
-    </div>
-  </div>
+          {/* MOBILE MENU */}
+          {open && (
+            <div className="mobile-menu">
+              {sections.map((s) => (
+                <button
+                  key={s.id}
+                  className={`nav-link ${active === s.id ? "active" : ""}`}
+                  onClick={() => handleClick(s.id)}
+                >
+                  {s.label}
+                </button>
+              ))}
 
-  {/* MOBILE MENU */}
-  {open && (
-    <div className="mobile-menu">
-      {sections.map((s) => (
-        <button
-          key={s.id}
-          className={`nav-link ${active === s.id ? "active" : ""}`}
-          onClick={() => {
-            handleClick(s.id);
-            setOpen(false);
-          }}
-        >
-          {s.label}
-        </button>
-      ))}
-      {/* MOBILE THEME TEXT */}
-    <button className="nav-link">
-      Theme
-    </button>
-      {/* <ThemeDropdown /> */}
-    </div>
-  )}
+              {/* MOBILE THEME EXPAND SECTION */}
+              <div className="mobile-theme-block">
+                <button
+                  className="mobile-theme-toggle"
+                  onClick={() => setThemeOpen(prev => !prev)}
+                >
+                  Theme {themeOpen ? "▲" : "▼"}
+                </button>
 
-
+                {themeOpen && (
+                  <div className="mobile-theme-options">
+                    {THEMES.map((t) => (
+                      <button
+                        key={t}
+                        className={`mobile-theme-btn ${theme === t ? "active" : ""}`}
+                        style={{   background: "transparent",
+    outline: `2px solid ${themeColor(t)}`, }}
+                        onClick={() => {
+                          setTheme(t);       // switch theme
+                          setOpen(false);   // close menu
+                          setThemeOpen(false);
+                        }}
+                      >
+                        {t.charAt(0).toUpperCase() + t.slice(1)}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
         </motion.nav>
       )}
