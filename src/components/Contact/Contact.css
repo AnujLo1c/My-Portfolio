@@ -223,7 +223,7 @@ html {
 .contact-card {
   max-width: 760px;
   width: 100%;
-  margin: 0 auto; /* **Crucial:** Centers the card within its parent (contact-wrapper) */
+  margin-top: 70px; /* **Crucial:** Centers the card within its parent (contact-wrapper) */
   padding: 26px 36px 32px;
   display: flex;
   flex-direction: column;

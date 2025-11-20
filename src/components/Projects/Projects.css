@@ -104,6 +104,9 @@ html[data-theme="neon"] .projects-title .underline {
 html[data-theme="light"] .tags span {
   background: rgba(0,0,0,0.06);
 }
+html[data-theme="colorful"] .tags span {
+  background: linear-gradient(90deg,#edb9ba,#eac1df,#bcabe2);
+}
 
 /* Hover Overlay */
 .overlay {
