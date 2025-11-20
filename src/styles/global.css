@@ -137,6 +137,7 @@ main {
   opacity: 0;
   transform: translateY(20px);
   transition: 0.6s ease;
+  
 }
 
 .reveal.visible {
@@ -218,7 +219,7 @@ main {
 
 
 section {
-  height: 100vh;
+  height: auto;
   min-height: 100vh;
 
   width: 100%;
@@ -236,4 +237,57 @@ section {
   padding: 0;             /* no inner offset */
   margin: 0;              /* no outer offset */
 }
+/* DEFAULT: Desktop → full screen sections */
+section {
+  height: 100vh;
+  min-height: 100vh;
+  scroll-snap-align: start;
 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  position: relative;
+}
+/* MOBILE FIX: allow sections to grow naturally */
+@media (max-width: 600px) {
+
+  .about-wrapper {
+    padding: 20px 14px;
+  }
+
+  .about-title {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+
+  /* Stack cards full width */
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Card sizing */
+  .about-card {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  /* Text resizing */
+  .about-card h3 {
+    font-size: 18px;
+  }
+
+  .about-card p,
+  .about-card li {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* Remove glowing border excess on mobile */
+  html[data-theme="neon"] .about-card {
+    box-shadow: 0 0 12px rgba(0,255,210,0.25);
+  }
+}

@@ -16,22 +16,16 @@ export default function About() {
         {/* LEFT — SUMMARY */}
         <div className="about-card summary-card">
           <h3>Introduction</h3>
+        
+
           <p>
-            I’m <strong>Anuj Lowanshi</strong>, a passionate mobile and backend developer
-            specializing in <strong>Flutter</strong> and <strong>Java Spring Boot</strong>. 
-            I enjoy building clean, scalable applications and solving challenging technical problems.
+            I’m <strong>Anuj Lowanshi</strong>, a passionate mobile and backend developer with hands-on experience in Spring Boot,Flutter, and scalable application development. I enjoy solving real-world problems and focus on writing clean, maintainable, and production-ready code. My internship at Hexalitics Technology Pvt. Ltd. gave me the opportunity to work closely with senior engineers, where I strengthened my skills in debugging, performance tuning, and API integration while contributing to live projects.
+
           </p>
 
           <p>
-            I focus on writing structured, maintainable code and learning directly from official documentation
-            rather than tutorials. I’ve worked on real-world projects during my internship at 
-            <strong> Hexalitics Technology Pvt. Ltd.</strong> where I collaborated with senior developers 
-            and improved debugging, performance tuning, and API integration skills.
-          </p>
-
-          <p>
-            Currently, I'm expanding my full-stack capabilities by learning 
-            <strong> Angular + TypeScript</strong> while continuing to build personal projects.
+            
+I’m highly adaptable and continuously improving through AI-assisted learning, documentation-first research, and project-based experimentation. Currently, I’m expanding my full-stack capabilities by learning React, while also building personal projects to sharpen my system design, problem-solving, and software engineering fundamentals. I enjoy taking initiative, learning fast, and working in environments that challenge me to grow as a developer.
           </p>
         </div>
 

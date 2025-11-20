@@ -1,10 +1,15 @@
+/* ===============================
+   WRAPPER
+================================ */
 .about-wrapper {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* Title */
+/* ===============================
+   TITLE
+================================ */
 .about-title {
   font-size: 36px;
   font-weight: 800;
@@ -22,7 +27,7 @@
   width: 0;
   height: 4px;
   border-radius: 4px;
-  transition: width .45s ease;
+  transition: width 0.45s ease;
 }
 
 .reveal.visible .about-title .underline {
@@ -31,33 +36,39 @@
 
 /* Theme underline colors */
 html[data-theme="light"] .about-title .underline {
-  background: linear-gradient(90deg,#0ea5e9,#7c3aed);
+  background: linear-gradient(90deg, #0ea5e9, #7c3aed);
 }
 html[data-theme="dark"] .about-title .underline {
-  background: linear-gradient(90deg,#7c3aed,#60a5fa);
+  background: linear-gradient(90deg, #7c3aed, #60a5fa);
 }
 html[data-theme="colorful"] .about-title .underline {
-  background: linear-gradient(90deg,#ff9a9e,#fbc2eb,#a18cd1);
+  background: linear-gradient(90deg, #ff9a9e, #fbc2eb, #a18cd1);
 }
 html[data-theme="neon"] .about-title .underline {
   background: #00ffd1;
   box-shadow: 0 0 10px #00ffd1;
 }
 
-/* GRID — Two Column Layout */
+/* ===============================
+   GRID
+================================ */
 .about-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: 30px;
 }
 
-@media(max-width: 820px) {
+/* MOBILE STACK */
+@media (max-width: 820px) {
   .about-grid {
     grid-template-columns: 1fr;
+    gap: 22px;
   }
 }
 
-/* CARDS */
+/* ===============================
+   CARDS
+================================ */
 .about-card {
   padding: 24px;
   border-radius: 18px;
@@ -70,7 +81,7 @@ html[data-theme="neon"] .about-title .underline {
 
 .about-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
 }
 
 .about-card h3 {
@@ -80,14 +91,12 @@ html[data-theme="neon"] .about-title .underline {
   color: var(--text);
 }
 
-/* Summary Card */
 .summary-card p {
   color: var(--muted);
   margin-bottom: 14px;
   line-height: 1.55;
 }
 
-/* Personal Details List */
 .about-card ul {
   padding-left: 18px;
 }
@@ -97,16 +106,45 @@ html[data-theme="neon"] .about-title .underline {
   color: var(--muted);
 }
 
-/* Neon Fix */
+/* ===============================
+   MOBILE TWEAKS (PERFECT DESIGN)
+================================ */
+/* MOBILE: Make Introduction card scrollable */
+@media (max-width: 600px) {
+  .summary-card {
+    max-height: 200px; /* shrink box height */
+    overflow: hidden; /* hide overflow */
+    position: relative; /* ensures scroll area stays inside */
+    padding-right: 8px; /* small breathing room */
+  }
+
+  .summary-card p {
+    max-height: 180px; /* scrollable area */
+    overflow-y: auto; /* enable vertical scroll */
+    padding-right: 6px; /* avoid text clipping behind scrollbar */
+  }
+
+  /* Smooth scroll feel */
+  .summary-card p::-webkit-scrollbar {
+    width: 4px;
+  }
+  .summary-card p::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+}
+
+/* ===============================
+   NEON THEME FIX
+================================ */
 html[data-theme="neon"] .about-card,
 html[data-theme="neon"] .summary-card {
   border: 1px solid #00ffd1;
-  box-shadow:
-    0 0 12px rgba(0,255,210,0.4),
-    0 0 22px rgba(0,255,210,0.18);
+  box-shadow: 0 0 12px rgba(0, 255, 210, 0.4), 0 0 22px rgba(0, 255, 210, 0.18);
 }
 
 html[data-theme="neon"] .about-card p,
 html[data-theme="neon"] .about-card li {
   color: #e8ffff;
 }
+/* FIX ALL SECTIONS OVERFLOWING CONTENT */
