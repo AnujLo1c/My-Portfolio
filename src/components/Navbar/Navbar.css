@@ -117,13 +117,14 @@
 .mobile-theme-toggle {
   background: transparent;
   border: none;
+  color: var(--muted) !important;
   text-align: left;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 600;
 
   width: 100%;
   cursor: pointer;
-  padding: 0;
+  padding: 8px 1px;
   outline: none !important;
   box-shadow: none !important;
 }

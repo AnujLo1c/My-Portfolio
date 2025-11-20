@@ -19,7 +19,7 @@ export default function About() {
         
 <div className="scroll-sec">
           <p>
-            I’m <strong>Anuj Lowanshi</strong>, a passionate mobile and backend developer with hands-on experience in Spring Boot,Flutter, and scalable application development. I enjoy solving real-world problems and focus on writing clean, maintainable, and production-ready code. My internship at Hexalitics Technology Pvt. Ltd. gave me the opportunity to work closely with senior engineers, where I strengthened my skills in debugging, performance tuning, and API integration while contributing to live projects.
+            I’m <strong>Anuj Lowanshi</strong>, a passionate App and Backend Developer with hands-on experience in Spring Boot,Flutter, and scalable application development. I enjoy solving real-world problems and focus on writing clean, maintainable, and production-ready code. My internship at Hexalitics Technology Pvt. Ltd. gave me the opportunity to work closely with senior engineers, where I strengthened my skills in debugging, performance tuning, and API integration while contributing to live projects.
 
           </p>
 

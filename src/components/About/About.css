@@ -41,7 +41,7 @@ html[data-theme="light"] .about-title .underline {
 html[data-theme="dark"] .about-title .underline {
   background: linear-gradient(90deg,#7c3aed,#60a5fa);
 }
-html[data-theme="colorful"] .about-title .underline {
+html[data-theme="colorful"] .about-title .underline  {
   background: linear-gradient(90deg,#ff9a9e,#fbc2eb,#a18cd1);
 }
 html[data-theme="neon"] .about-title .underline {
@@ -74,7 +74,7 @@ html[data-theme="neon"] .about-title .underline {
   border-radius: 18px;
   background: var(--card);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(8px);
+ 
   transition: 0.3s ease;
   margin-bottom: 10px;
   align-items: space-between;
@@ -158,9 +158,9 @@ html[data-theme="neon"] .about-card li {
     z-index: 20;
     padding: 8px 6px;
     font-size: 18px;
-    background: var(--card);    /* full non-transparent background */
+        /* full non-transparent background */
     backdrop-filter: blur(6px); /* optional, makes it look premium */
-    border-bottom: 1px solid rgba(255,255,255,0.12);
+   
   }
 
   /* Paragraph content scrolls beneath */
@@ -176,7 +176,7 @@ html[data-theme="neon"] .about-card li {
     width: 4px;
   }
   .summary-card::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.25);
+    background: transparent;
     border-radius: 4px;
   }
 }
