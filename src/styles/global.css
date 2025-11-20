@@ -161,7 +161,7 @@ main {
 
 html[data-theme="light"] .btn { background: var(--accent); color: white; }
 html[data-theme="dark"] .btn { background: var(--accent); color: white; }
-html[data-theme="colorful"] .btn { background: rgba(255,255,255,0.85); color:#06121a; }
+html[data-theme="colorful"] .btn { background: linear-gradient(90deg,oklab(75.872% 0.06374 0.02009),#eda3d9,#c0a9f3); color:#06121a; }
 html[data-theme="neon"] .btn {
   background: #06182f;
   border: 1px solid var(--accent);

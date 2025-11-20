@@ -1,26 +1,33 @@
-/* Wrapper for spacing & centering */
+/* ===============================
+   CONTACT SECTION (CLEAN VERSION)
+================================ */
+
+/* Wrapper */
 .contact-wrapper {
   width: 100%;
-  height: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  padding-top: calc(var(--nav-height) + 20px);
+  padding-bottom: 40px;
   display: flex;
   justify-content: center;
-  align-items: center;   /* center inside the section */
 }
 
-
-
-/* Contact card */
+/* Contact Card */
 .contact-card {
-  max-width: 760px;
   width: 100%;
-  margin: 0 auto; /* **Crucial:** Centers the card within its parent (contact-wrapper) */
-  padding: 26px 36px 32px;
+  padding: 28px 36px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
 }
 
-/* Title + copy button row */
-.contact-card .row.align-center {
+/* Header row */
+.contact-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,51 +38,54 @@
   font-size: 28px;
   font-weight: 700;
   margin: 0;
+  line-height: 1.2;
+}
+
+/* Copy email button */
+.copy-btn {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  white-space: nowrap;
+  
 }
 
 /* Subtitle */
 .contact-sub {
+  margin: 6px 0 24px;
   color: var(--muted);
-  margin: 10px 0 28px;
 }
 
-/* Main form layout */
+/* Form */
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
-/* Row of two fields */
+/* Two-column row */
 .row {
   display: flex;
   gap: 16px;
   width: 100%;
 }
 
+/* Mobile: stack fields */
 @media (max-width: 820px) {
   .row {
     flex-direction: column;
   }
+  .contact-card {
+    padding: 24px 22px;
+  }
 }
 
-
-.field textarea {
-  resize: none;               /* user cannot stretch it */
-  height: 140px !important;   /* fixed size */
-  line-height: 1.4;
-}
-
-/* remove extra bottom gap */
-.contact-form {
-  gap: 14px;
-}
-
-
+/* Field Wrapper */
 .field {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .field label {
@@ -84,42 +94,45 @@
   color: var(--muted);
 }
 
-/* FIX: INPUTS TURNING BLACK — NOW THEME-FRIENDLY */
+/* Inputs / Textarea */
 .field input,
 .field textarea,
 .subject-select select,
 .custom-subject {
   width: 100%;
   padding: 12px 14px;
-  border-radius: 10px;
   font-size: 15px;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: rgba(255, 255, 255, 0.9); /* LIGHT THEME DEFAULT */
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.9);
   color: var(--text);
   transition: 0.25s ease;
 }
 
-/* DARK THEME FIX */
-html[data-theme="dark"] .field input,
-html[data-theme="dark"] .field textarea,
-html[data-theme="dark"] .subject-select select,
-html[data-theme="dark"] .custom-subject {
-  background: rgba(15, 23, 42, 0.6);
-  color: #e2e8f0;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Textarea */
+.field textarea {
+  height: 140px;
+  resize: none;
 }
 
-/* NEON THEME FIX */
+/* Theme overrides */
+html[data-theme="dark"] .field input,
+html[data-theme="dark"] .field textarea,
+html[data-theme="dark"] .subject-select select {
+  background: rgba(15,23,42,0.6);
+  color: #e2e8f0;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
 html[data-theme="neon"] .field input,
 html[data-theme="neon"] .field textarea,
-html[data-theme="neon"] .subject-select select,
-html[data-theme="neon"] .custom-subject {
-  background: rgba(6, 16, 34, 0.65);
+html[data-theme="neon"] .subject-select select {
+  background: rgba(6,16,34,0.65);
   color: #cbd5e1;
   border: 1px solid var(--accent);
 }
 
-/* Subject dropdown layout */
+/* Subject dropdown */
 .subject-select {
   display: flex;
   gap: 10px;
@@ -130,14 +143,14 @@ html[data-theme="neon"] .custom-subject {
   flex: 1;
 }
 
-/* Actions */
+/* Buttons row */
 .actions {
   display: flex;
   gap: 14px;
   margin-top: 8px;
 }
 
-/* Status message */
+/* Status Messages */
 .status {
   margin-top: 18px;
   padding: 12px 14px;
@@ -155,123 +168,15 @@ html[data-theme="neon"] .custom-subject {
   color: #b91c1c;
 }
 
-/* Responsive */
-@media (max-width: 820px) {
-  .row {
-    flex-direction: column;
-  }
-  
-  .contact-card {
-    padding: 28px 24px;
-  }
-}
-/* Perfect left-right header alignment */
-.contact-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;        /* PERFECT vertical alignment */
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-/* Title styling */
-.contact-title {
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;                 /* ensure no extra offset */
-  line-height: 1.2;
-}
-
-/* Copy button alignment fix */
-.copy-btn {
-  margin: 0;                  /* remove default button offset */
-  height: 40px;               /* force equal height */
-  display: flex;
-  align-items: center;        /* vertically center text */
-  justify-content: center;
-  padding: 0 16px;
-  white-space: nowrap;        /* text doesn’t wrap */
-}
-
-/* Subtitle styling */
-.contact-sub {
-  color: var(--muted);
-  margin: 6px 0 24px;
-}
-/* 1) Preferred: tell the browser to treat the nav as the scroll anchor offset
-   so snapping / anchor links never get hidden behind the fixed nav */
-:root {
-  --nav-height: 64px; /* keep this in sync wsection ith your variable */
-}
+/* Global scroll anchor fix */
 html {
-  scroll-padding-top: calc(var(--nav-height) + 14px); /* makes in-page scroll land below the nav */
+  scroll-padding-top: calc(var(--nav-height) + 14px);
 }
 
-/* 2) Stronger spacing for the contact section wrapper */
-/* FINAL CLEAN SPACING — ONLY USE THIS */
-.contact-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  padding-top: calc(var(--nav-height));  /* safe, minimal gap */
-  padding-bottom: 40px; 
-}
 
-/* Contact card — clean and simple */
-.contact-card {
-  max-width: 760px;
-  width: 100%;
-  margin-top: 70px; /* **Crucial:** Centers the card within its parent (contact-wrapper) */
-  padding: 26px 36px 32px;
-  display: flex;
-  flex-direction: column;
-}
 
-/* 4) If your navbar is absolutely high z-index and visually overlapping,
-   push the card down with an invisible spacer as last resort */
-#contact-spacer {
-  height: calc(var(--nav-height) + 38px);
-  width: 100%;
-  display: block;
-}
 
-/* 5) If some other rule is forcing different padding, make this very specific */
-/* section#contact .contact-wrapper,
-section#contact .contact-card {
-  padding-top: calc(var(--nav-height)) !important;
-} */
-/* Fix section flex misalignment caused by global section styles */
-/* section#contact {
-  padding: 0 !important;
-  margin: 0 !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-} */
-
-.contact-wrapper {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;      /* horizontal center */
-  padding-top: calc(var(--nav-height) + 10px);
-  padding-bottom: 20px;
-}
-
-.contact-wrapper {
-  width: 100%;
-  max-width: 820px;
-  margin: 0 auto;           /* horizontal center */
-  padding-top: 20px;        /* spacing above card */
-  padding-bottom: 20px;
-  display: flex;
-  justify-content: center;  /* center card inside wrapper */
-}
-
-/* Give every section a clean themed background */
-section {
-  background: var(--bg);
-  background-size: cover;
-  background-position: center;
+html[data-theme="colorful"] {
+  --button-bg: linear-gradient(90deg,#edb9ba,#eac1df,#bcabe2);
+  --button-primary: linear-gradient(90deg,#edb9ba,#eac1df,#bcabe2);
 }
