@@ -80,7 +80,8 @@ html[data-theme="neon"] .projects-title .underline {
   margin-bottom: 10px;
   color: var(--text);
 }
-/* Fade out card content on hover */
+
+/* Hover - fade out content */
 .project-card:hover .card-content {
   opacity: 0;
   transform: translateY(-8px);
@@ -108,7 +109,7 @@ html[data-theme="colorful"] .tags span {
   background: linear-gradient(90deg,#edb9ba,#eac1df,#bcabe2);
 }
 
-/* Hover Overlay */
+/* Hover Overlay — desktop only */
 .overlay {
   position: absolute;
   inset: 0;
@@ -146,4 +147,110 @@ html[data-theme="neon"] .overlay {
   backdrop-filter: blur(6px);
   border: 1px solid #00ffd1;
   color: #e8ffff;
+}
+
+/* ============================
+   📱 Mobile-Optimized Layout
+============================ */
+@media (max-width: 600px) {
+
+  .projects-wrapper {
+    padding: 10px 14px;
+  }
+
+  .projects-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .project-card {
+    height: auto;
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  /* ALWAYS SHOW CONTENT — NO FADE */
+  .card-content {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Hide desktop overlay */
+  .overlay {
+    display: none !important;
+  }
+
+  /* Mobile description under card */
+  .mobile-desc {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--muted);
+    display: block;
+  }
+
+  .tags span {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 400px) {
+  .projects-title { font-size: 24px; }
+  .project-card { padding: 16px; }
+  .tags span {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+}
+/* -----------------------------
+   MOBILE TAP-TO-EXPAND
+------------------------------*/
+.mobile-expand {
+  display: none;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: var(--muted);
+}
+
+.mobile-github-btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  width: fit-content;
+}
+
+/* Only mobile */
+@media (max-width: 700px) {
+  
+  .overlay {
+    display: none !important; /* disable hover mode */
+  }
+
+  .project-card {
+    height: auto;
+    padding: 18px;
+  }
+
+  /* Expand animation */
+  .project-card.opened .mobile-expand {
+    display: block;
+  }
+
+  .project-card.opened {
+    background: var(--card);
+    transform: scale(1.02);
+  }
 }

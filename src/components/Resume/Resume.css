@@ -132,3 +132,96 @@ html[data-theme="colorful"] {
     );
   }
 }
+/* ===========================================
+   📱 MOBILE RESPONSIVE — Resume Section
+=========================================== */
+@media (max-width: 680px) {
+
+  /* Reduce wrapper padding */
+  .resume-wrapper {
+    padding: 20px 40px;
+  }
+.exp-title{
+  margin-top: 20px;
+}
+  /* Title smaller & centered */
+  .resume-title {
+    font-size: 28px;
+    margin-bottom: 22px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .resume-title .underline {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+  }
+
+  /* Buttons stack vertically */
+  .resume-buttons {
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 auto 20px;
+    width: 100%;
+  }
+
+  .resume-buttons button {
+    width: 100%;
+    padding: 24px 0px;
+  }
+
+  /* Experience card full width */
+  .experience-card {
+    margin-left: 0;
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .experience-card h3 {
+    font-size: 18px;
+  }
+
+  .experience-card .company {
+    font-size: 13px;
+  }
+
+  .experience-card ul {
+    padding-left: 16px;
+  }
+
+  .experience-card li {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .icon {
+    font-size: 16px;
+  }
+}
+
+/* ===========================================
+   📱 EXTRA SMALL DEVICES (<= 420px)
+=========================================== */
+@media (max-width: 420px) {
+
+  .resume-title {
+    font-size: 24px;
+  }
+
+  .experience-card {
+    padding: 16px;
+  }
+
+  .experience-card h3 {
+    font-size: 17px;
+  }
+
+  .experience-card li {
+    font-size: 13px;
+  }
+
+  .resume-buttons button {
+    font-size: 14px;
+  }
+}

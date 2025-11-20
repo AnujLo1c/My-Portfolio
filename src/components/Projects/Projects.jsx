@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Projects.css";
 
 export default function Projects() {
+  const [openIndex, setOpenIndex] = useState(null); // <-- mobile toggle
 
   const projects = [
     {
@@ -42,19 +43,26 @@ export default function Projects() {
     }
   ];
 
+  // Detect mobile
+  const isMobile = window.innerWidth < 700;
+
+  const toggleMobile = (index) => {
+    if (!isMobile) return; // Desktop uses hover
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <div className="projects-wrapper reveal">
       <h2 className="projects-title">
-        Projects
-        <span className="underline"></span>
+        Projects <span className="underline"></span>
       </h2>
 
       <div className="projects-grid">
         {projects.map((p, i) => (
           <div
             key={i}
-            className="project-card"
-            onClick={() => window.open(p.link, "_blank")}
+            className={`project-card ${openIndex === i ? "opened" : ""}`}
+            onClick={() => toggleMobile(i)}
           >
             <div className="card-content">
               <h3>{p.name}</h3>
@@ -64,9 +72,24 @@ export default function Projects() {
                   <span key={idx}>{t}</span>
                 ))}
               </div>
+
+              {/* MOBILE EXPAND CONTENT */}
+              <div className="mobile-expand">
+                <p>{p.desc}</p>
+
+                <button
+                  className="mobile-github-btn"
+                  onClick={(e) => {
+                    e.stopPropagation(); // prevent closing toggle
+                    window.open(p.link, "_blank");
+                  }}
+                >
+                  View on GitHub →
+                </button>
+              </div>
             </div>
 
-            {/* Hover Overlay */}
+            {/* DESKTOP ONLY — HOVER OVERLAY */}
             <div className="overlay">
               <p>{p.desc}</p>
               <button className="view-btn">View on GitHub →</button>

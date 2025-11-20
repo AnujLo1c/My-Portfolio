@@ -180,3 +180,135 @@ html[data-theme="colorful"] {
   --button-bg: linear-gradient(90deg,#edb9ba,#eac1df,#bcabe2);
   --button-primary: linear-gradient(90deg,#edb9ba,#eac1df,#bcabe2);
 }
+/* ============================================================
+   📱 MOBILE LAYOUT — OPTIMIZED FOR 600px AND BELOW
+============================================================ */
+@media (max-width: 600px) {
+
+  /* Wrapper */
+  .contact-wrapper {
+    padding-top: calc(var(--nav-height) + 10px);
+    padding-bottom: 20px;
+  }
+
+  /* Card */
+  .contact-card {
+    padding: 18px 16px;
+    margin-top: 100px;
+    border-radius: 14px;
+  }
+
+  /* Title */
+  .contact-title {
+    font-size: 23px;
+    align-self: center;
+    padding-bottom: 10px;
+  }
+
+  /* Header alignment */
+  .contact-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Copy button */
+  .copy-btn {
+    width: 100%;
+    height: 38px;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  /* Subtitle */
+  .contact-sub {
+    font-size: 14px;
+    margin: 4px 0 16px;
+  }
+
+  /* Two-column → single column */
+  .row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Input fields */
+  .field input,
+  .field textarea,
+  .subject-select select,
+  .custom-subject {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  /* Textarea size */
+  .field textarea {
+    height: 120px;
+  }
+
+  /* Subject dropdown vertical stacking if needed */
+  .subject-select {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .subject-select select {
+    width: 100%;
+  }
+
+  .custom-subject {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Action buttons */
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .actions .btn {
+    width: 100%;
+    height: 42px;
+    font-size: 15px;
+  }
+
+  /* Status message */
+  .status {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+
+
+/* ============================================================
+   📱 EXTRA SMALL SCREENS — 420px and smaller
+============================================================ */
+@media (max-width: 420px) {
+
+  .contact-card {
+    padding: 14px 12px;
+  }
+
+  .contact-title {
+    font-size: 20px;
+  }
+
+  .contact-sub {
+    font-size: 13px;
+  }
+
+  .field input,
+  .field textarea,
+  .subject-select select,
+  .custom-subject {
+    font-size: 13px;
+    padding: 9px 10px;
+  }
+
+  .actions .btn {
+    font-size: 14px;
+    height: 40px;
+  }
+}

@@ -130,3 +130,82 @@ html[data-theme="neon"] .cert-card h3,
 html[data-theme="neon"] .cert-card .issuer {
   color: #e8ffff;
 }
+/* ============================================================
+   📱 MOBILE OPTIMIZATION (<= 600px)
+============================================================ */
+@media (max-width: 600px) {
+
+  /* Wrapper spacing */
+  .cert-wrapper {
+    padding: 15px 20px;
+  }
+
+  /* Title */
+  .cert-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    
+  }
+
+  /* Grid becomes full width */
+  .cert-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    margin-left: 14px;
+    margin-right: 10px;
+
+  }
+
+  /* Card compact layout */
+  .cert-card {
+    padding: 16px 18px;
+    border-radius: 14px;
+    min-height: auto;
+  }
+
+  /* Title inside card */
+  .cert-card h3 {
+    font-size: 18px;
+  }
+
+  .cert-card .issuer {
+    font-size: 14px;
+    margin: 6px 0 14px;
+  }
+
+  /* Button */
+  .view-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 100%;        /* full width button for mobile */
+    text-align: center;
+  }
+}
+
+
+/* ============================================================
+   📱 EXTRA SMALL DEVICES (<= 400px)
+============================================================ */
+@media (max-width: 400px) {
+
+  .cert-title {
+    font-size: 24px;
+  }
+
+  .cert-card {
+    padding: 14px 14px;
+  }
+
+  .cert-card h3 {
+    font-size: 16px;
+  }
+
+  .cert-card .issuer {
+    font-size: 13px;
+  }
+
+  .view-btn {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+}

@@ -61,7 +61,7 @@ export default function Resume() {
         </a>
       </div>
 
-<h3 className="resume-title">
+<h3 className="resume-title exp-title">
         Experience
         <span className="underline"></span>
       </h3>
