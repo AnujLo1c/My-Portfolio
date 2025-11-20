@@ -41,55 +41,71 @@ export default function Navbar() {
 
   /* scroll hide & active section update */
   useEffect(() => {
-    const mainEl = document.getElementById("page-main");
-    if (!mainEl) return;
 
-    const handleScroll = () => {
-      if (ticking.current) return;
-      ticking.current = true;
+  // 📌 Detect if user is on mobile layout
+  const isMobile = window.innerWidth <= 600;
 
-      requestAnimationFrame(() => {
-        const current = mainEl.scrollTop;
-        const previous = lastScroll.current;
-        const diff = current - previous;
-        const SENSITIVITY = 20;
+  if (isMobile) {
+    // 🔥 ALWAYS SHOW NAVBAR ON MOBILE
+    setShowNav(true);
 
-        const heroHeight = document.getElementById("home")?.offsetHeight || 500;
+    // Completely disable scroll-hide logic
+    return;
+  }
 
-        if (current < heroHeight - 50) {
-          setShowNav(true);
-          setActive("home");
-          lastScroll.current = current;
-          ticking.current = false;
-          return;
-        }
+  // ==========================
+  // DESKTOP LOGIC BELOW ONLY
+  // ==========================
 
-        if (diff > SENSITIVITY) {
-          setShowNav(false);
-        } else if (diff < -SENSITIVITY) {
-          setShowNav(true);
-        }
+  const mainEl = document.getElementById("page-main");
+  if (!mainEl) return;
 
-        // Update active section based on scroll position
-        for (let section of sections) {
-          const el = document.getElementById(section.id);
-          if (el) {
-            const rect = el.getBoundingClientRect();
-            if (rect.top <= 150 && rect.bottom > 150) {
-              setActive(section.id);
-              break;
-            }
-          }
-        }
+  const handleScroll = () => {
+    if (ticking.current) return;
+    ticking.current = true;
 
+    requestAnimationFrame(() => {
+      const current = mainEl.scrollTop;
+      const previous = lastScroll.current;
+      const diff = current - previous;
+      const SENSITIVITY = 20;
+
+      const heroHeight = document.getElementById("home")?.offsetHeight || 500;
+
+      if (current < heroHeight - 50) {
+        setShowNav(true);
+        setActive("home");
         lastScroll.current = current;
         ticking.current = false;
-      });
-    };
+        return;
+      }
 
-    mainEl.addEventListener("scroll", handleScroll);
-    return () => mainEl.removeEventListener("scroll", handleScroll);
-  }, []);
+      if (diff > SENSITIVITY) setShowNav(false);
+      else if (diff < -SENSITIVITY) setShowNav(true);
+
+      // Active section detection
+      for (let section of sections) {
+        const el = document.getElementById(section.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom > 150) {
+            setActive(section.id);
+            break;
+          }
+        }
+      }
+
+      lastScroll.current = current;
+      ticking.current = false;
+    });
+  };
+
+  mainEl.addEventListener("scroll", handleScroll);
+
+  return () => mainEl.removeEventListener("scroll", handleScroll);
+}, []);
+
+
 
   const handleClick = (id) => {
     const el = document.getElementById(id);
@@ -103,13 +119,14 @@ export default function Navbar() {
 
   return (
     <AnimatePresence>
-      {showNav && (
+      {(showNav || window.innerWidth <= 600) && (
         <motion.nav
           key="navbar"
           className="navbar"
           initial={{ y: -90, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -90, opacity: 0 }}
+          exit={window.innerWidth <= 600 ? {} : { y: -90, opacity: 0 }}
+
           transition={{ duration: 0.25 }}
         >
           {/* BRAND */}

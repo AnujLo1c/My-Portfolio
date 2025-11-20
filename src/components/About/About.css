@@ -27,7 +27,7 @@
   width: 0;
   height: 4px;
   border-radius: 4px;
-  transition: width 0.45s ease;
+  transition: width .45s ease;
 }
 
 .reveal.visible .about-title .underline {
@@ -36,13 +36,13 @@
 
 /* Theme underline colors */
 html[data-theme="light"] .about-title .underline {
-  background: linear-gradient(90deg, #0ea5e9, #7c3aed);
+  background: linear-gradient(90deg,#0ea5e9,#7c3aed);
 }
 html[data-theme="dark"] .about-title .underline {
-  background: linear-gradient(90deg, #7c3aed, #60a5fa);
+  background: linear-gradient(90deg,#7c3aed,#60a5fa);
 }
 html[data-theme="colorful"] .about-title .underline {
-  background: linear-gradient(90deg, #ff9a9e, #fbc2eb, #a18cd1);
+  background: linear-gradient(90deg,#ff9a9e,#fbc2eb,#a18cd1);
 }
 html[data-theme="neon"] .about-title .underline {
   background: #00ffd1;
@@ -59,7 +59,7 @@ html[data-theme="neon"] .about-title .underline {
 }
 
 /* MOBILE STACK */
-@media (max-width: 820px) {
+@media(max-width: 820px) {
   .about-grid {
     grid-template-columns: 1fr;
     gap: 22px;
@@ -77,11 +77,12 @@ html[data-theme="neon"] .about-title .underline {
   backdrop-filter: blur(8px);
   transition: 0.3s ease;
   margin-bottom: 10px;
+  align-items: space-between;
 }
 
 .about-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.14);
 }
 
 .about-card h3 {
@@ -105,34 +106,23 @@ html[data-theme="neon"] .about-title .underline {
   margin-bottom: 10px;
   color: var(--muted);
 }
-
-/* ===============================
-   MOBILE TWEAKS (PERFECT DESIGN)
-================================ */
-/* MOBILE: Make Introduction card scrollable */
-@media (max-width: 600px) {
-  .summary-card {
-    max-height: 200px; /* shrink box height */
-    overflow: hidden; /* hide overflow */
-    position: relative; /* ensures scroll area stays inside */
-    padding-right: 8px; /* small breathing room */
-  }
-
-  .summary-card p {
-    max-height: 180px; /* scrollable area */
-    overflow-y: auto; /* enable vertical scroll */
-    padding-right: 6px; /* avoid text clipping behind scrollbar */
-  }
-
-  /* Smooth scroll feel */
-  .summary-card p::-webkit-scrollbar {
-    width: 4px;
-  }
-  .summary-card p::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-  }
+.edu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
 }
+
+.edu-title {
+  margin: 0;
+}
+
+.edu-year {
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
 
 /* ===============================
    NEON THEME FIX
@@ -140,11 +130,54 @@ html[data-theme="neon"] .about-title .underline {
 html[data-theme="neon"] .about-card,
 html[data-theme="neon"] .summary-card {
   border: 1px solid #00ffd1;
-  box-shadow: 0 0 12px rgba(0, 255, 210, 0.4), 0 0 22px rgba(0, 255, 210, 0.18);
+  box-shadow:
+    0 0 12px rgba(0,255,210,0.4),
+    0 0 22px rgba(0,255,210,0.18);
 }
 
 html[data-theme="neon"] .about-card p,
 html[data-theme="neon"] .about-card li {
   color: #e8ffff;
 }
-/* FIX ALL SECTIONS OVERFLOWING CONTENT */
+
+/* MOBILE: Make Introduction card scrollable */
+@media (max-width: 600px) {
+
+  /* Entire card becomes scroll container */
+  .scroll-sec {
+    max-height: 160px;          /* height of card */
+    overflow-y: auto;           /* scroll inside card */
+    position: relative;
+           /* small space for sticky title */
+  }
+
+  /* FIXED TITLE (not transparent, dark background) */
+  .summary-card h3 {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 8px 6px;
+    font-size: 18px;
+    background: var(--card);    /* full non-transparent background */
+    backdrop-filter: blur(6px); /* optional, makes it look premium */
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+
+  /* Paragraph content scrolls beneath */
+  .summary-card p {
+    margin-top: 6px;
+    padding-right: 6px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Scrollbar styling (optional) */
+  .summary-card::-webkit-scrollbar {
+    width: 4px;
+  }
+  .summary-card::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.25);
+    border-radius: 4px;
+  }
+}
+
