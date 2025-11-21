@@ -165,7 +165,7 @@ html[data-theme="neon"] .overlay {
 
   .projects-grid {
     grid-template-columns: 1fr !important;
-    gap: 16px;
+    gap: 12px;
   }
 
   .project-card {

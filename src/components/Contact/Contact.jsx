@@ -152,7 +152,7 @@ export default function Contact() {
     <div className="contact-content">
       <div className="contact-card card">
         <div className="contact-header">
-          <h2 className="contact-title">Get in touch</h2>
+          <h2 className="contact-title">Get In Touch</h2>
 
           <button
             type="button"
