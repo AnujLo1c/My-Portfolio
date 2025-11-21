@@ -272,6 +272,7 @@ section {
   /* Card sizing */
   .about-card {
     padding: 18px;
+    padding-top: 12px;
     border-radius: 14px;
   }
 

@@ -4,7 +4,7 @@ import "./Skills.css";
 export default function Skills() {
   return (
     <div className="skills-wrapper">
-       <h2 className="skills-title reveal">
+       <h2 className="skills-title reveal ">
     Skills
     <span className="underline"></span>
   </h2>

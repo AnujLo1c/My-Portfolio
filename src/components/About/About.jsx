@@ -33,7 +33,7 @@ I’m highly adaptable and continuously improving through AI-assisted learning, 
         {/* RIGHT — EDUCATION + DETAILS */}
         <div className="about-right">
 
-          <div className="about-card">
+          <div className="about-card ep-card">
   <h3>Education</h3>
 
   <div className="edu-item">

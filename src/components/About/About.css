@@ -76,7 +76,7 @@ html[data-theme="neon"] .about-title .underline {
   box-shadow: var(--shadow);
  
   transition: 0.3s ease;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   align-items: space-between;
 }
 
@@ -88,7 +88,7 @@ html[data-theme="neon"] .about-title .underline {
 .about-card h3 {
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 4px;
   color: var(--text);
 }
 
@@ -142,7 +142,9 @@ html[data-theme="neon"] .about-card li {
 
 /* MOBILE: Make Introduction card scrollable */
 @media (max-width: 600px) {
-
+.ep-card{
+  margin-bottom: 12px;
+}
   /* Entire card becomes scroll container */
   .scroll-sec {
     max-height: 160px;          /* height of card */
@@ -156,7 +158,7 @@ html[data-theme="neon"] .about-card li {
     position: sticky;
     top: 0;
     z-index: 20;
-    padding: 8px 6px;
+    padding: 0px 2px;
     font-size: 18px;
         /* full non-transparent background */
     backdrop-filter: blur(6px); /* optional, makes it look premium */

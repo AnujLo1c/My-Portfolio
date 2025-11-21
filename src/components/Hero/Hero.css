@@ -83,16 +83,16 @@
     grid-template-areas:
       "left"
       "right";   /* <-- FLIPPED ORDER */
+      padding-right: 20px;
   }
 }
 
 /* Mobile layout */
 @media (max-width: 900px) {
-  .hero-clean {
-    padding: 20px;
-  }
+
 
   .hero-right {
+    width: 100%;
     text-align: center;
     align-items: center;
   }
