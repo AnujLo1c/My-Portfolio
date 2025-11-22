@@ -111,7 +111,7 @@ html[data-theme="neon"] .about-title .underline {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 6px;
+  
 }
 
 .edu-title {
@@ -140,14 +140,16 @@ html[data-theme="neon"] .about-card p,
 html[data-theme="neon"] .about-card li {
   color: #e8ffff;
 }
-
+.ep-card{
+  margin-bottom: 12px;
+}
 /* MOBILE: Make Introduction card scrollable */
 @media (max-width: 600px) {
   .edu-title {
   margin: 0px;
 }
 .ep-card{
-  margin-bottom: 12px;
+  margin-bottom: 12px;;
 }
   /* Entire card becomes scroll container */
   .scroll-sec {
