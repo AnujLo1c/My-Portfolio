@@ -30,6 +30,7 @@ export default function Skills() {
             <h3>Frameworks</h3>
             <div className="tags">
               <span>Spring Boot</span>
+              <span>Hibernate</span>
 
               <span>Flutter</span>
             </div>
@@ -44,12 +45,21 @@ export default function Skills() {
               <span>MySQL</span>
               <span>PostgreSQL</span>
               <span>MongoDB</span>
-              <span>Firestore</span>
          
             </div>
           </div>
         </div>
-
+ <div className="skill-card reveal">
+          <div className="accent"></div>
+          <div className="content">
+            <h3>Markup & Styling</h3>
+            <div className="tags">
+              <span>HTML</span>
+              <span>CSS</span>
+         
+            </div>
+          </div>
+        </div>
         <div className="skill-card reveal">
           <div className="accent"></div>
           <div className="content">

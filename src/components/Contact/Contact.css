@@ -194,7 +194,7 @@ html[data-theme="colorful"] {
   /* Card */
   .contact-card {
     padding: 18px 16px;
-    margin-top: 60px;
+    margin-top: 40px;
     border-radius: 14px;
   }
 
@@ -209,7 +209,7 @@ html[data-theme="colorful"] {
   .contact-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 8px;
   }
 
   /* Copy button */

@@ -201,7 +201,7 @@ html[data-theme="neon"] .overlay {
 }
 
 /* Extra small screens */
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .projects-title { font-size: 24px; }
   .project-card { padding: 16px; }
   .tags span {
@@ -212,14 +212,35 @@ html[data-theme="neon"] .overlay {
 /* -----------------------------
    MOBILE TAP-TO-EXPAND
 ------------------------------*/
+/* -----------------------------
+   MOBILE TAP-TO-EXPAND (Animated)
+------------------------------*/
+
+/* Initially collapsed */
 .mobile-expand {
-  display: none;
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  color: var(--muted);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 1px solid transparent;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.30s ease,
+    margin-top 0.25s ease,
+    padding-top 0.25s ease;
 }
 
+/* When opened */
+.project-card.opened .mobile-expand {
+  max-height: 300px;        /* Large enough to fit description */
+  opacity: 1;
+  margin-top: 12px;
+
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+/* GitHub button styling */
 .mobile-github-btn {
   margin-top: 10px;
   padding: 8px 12px;
@@ -230,7 +251,15 @@ html[data-theme="neon"] .overlay {
   background: var(--accent);
   color: white;
   width: fit-content;
+  transition: 0.25s;
 }
+
+/* Card highlight on open */
+.project-card.opened {
+  transform: scale(1.02);
+  transition: 0.25s ease;
+}
+
 
 /* Only mobile */
 @media (max-width: 700px) {
@@ -245,12 +274,11 @@ html[data-theme="neon"] .overlay {
   }
 
   /* Expand animation */
-  .project-card.opened .mobile-expand {
-    display: block;
-  }
+  
 
   .project-card.opened {
     background: var(--card);
     transform: scale(1.02);
+
   }
 }

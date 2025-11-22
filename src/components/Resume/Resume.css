@@ -206,9 +206,12 @@ html[data-theme="colorful"] {
 /* ===========================================
    📱 EXTRA SMALL DEVICES (<= 420px)
 =========================================== */
-@media (max-width: 420px) {
+@media (max-width: 450px) {
 
   .resume-title {
+    font-size: 24px;
+  }
+  .exp-title{
     font-size: 24px;
   }
 
