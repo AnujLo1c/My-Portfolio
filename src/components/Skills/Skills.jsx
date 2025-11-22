@@ -52,10 +52,11 @@ export default function Skills() {
  <div className="skill-card reveal">
           <div className="accent"></div>
           <div className="content">
-            <h3>Markup & Styling</h3>
+            <h3>Frontend</h3>
             <div className="tags">
               <span>HTML</span>
               <span>CSS</span>
+              <span>React</span>
          
             </div>
           </div>
