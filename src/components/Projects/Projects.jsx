@@ -6,41 +6,30 @@ export default function Projects() {
 
   const projects = [
     {
-      name: "PetKart – Pet Adoption & E-Commerce App",
-      tech: ["Flutter", "Firebase", "GetX"],
-      desc: "A complete pet adoption + accessories store with chat, donation, and admin features.",
-      link: "#"
+      name: "CodeSync - Collaborative Code Editor",
+      tech: ["Java", "Spring Boot", "WebSocket","JWT", "REST API", "MongoDB", "Spring Security"],
+      desc: "Developed a real-time collaboration platform enabling multiple users to code. Designed backend APIs with low-latency WebSocket sync. Integrated JWT auth with Spring Security to ensure user data protection and security.",
+      link: "https://github.com/AnujLo1c/CollaborativeCodeEditor-backend"
     },
     {
-      name: "AI Chat – Gemini + Local DB",
-      tech: ["Flutter", "SQLite", "Gemini API"],
-      desc: "AI Chat app with history, offline DB, and Lottie animations.",
-      link: "#"
+      name: "PetKart – Pet Adoption & E-Store",
+      tech: ["Java", "Spring Boot", "Flutter", "Dart", "Firebase", "SQLite"],
+      desc: "Built a platform for pet adoption, sales, and community features. Developed vendor and user apps with secure authentication and order management.",
+      link: "https://github.com/AnujLo1c/PetKart"
     },
     {
-      name: "Hum Chale – Travel Group Planner",
-      tech: ["Flutter", "Firebase"],
-      desc: "Group travel planning app with budget tracking and trip management.",
-      link: "#"
+      name: "Hum Chale – Travel Management App",
+      tech: ["Java" ,"Spring Boot", "Flutter", "Firebase", "Dart", "Bloc", "Firebase"],
+      desc: "The Hum Chale app simplifies hosting and joining trips by connecting users interested in small, budget-friendly travel. It also offers travel history, trip status, trip requests, and profile management to enhance the user experience.",
+      link: "https://github.com/AnujLo1c/hum_chale"
     },
     {
-      name: "Speed Dating App",
-      tech: ["Flutter", "Firebase", "GetX"],
-      desc: "Real-time matching system with countdown timer and swipe logic.",
-      link: "#"
-    },
-    {
-      name: "Java Spring Boot API Suite",
-      tech: ["Java", "Spring Boot", "MySQL"],
-      desc: "REST APIs, authentication, CRUD operations, and complete backend data layer.",
-      link: "#"
-    },
-    {
-      name: "Pokémon Style 2v2 Game Backend",
-      tech: ["Java", "Spring Boot"],
-      desc: "Turn-based battle logic with PvP mechanics and real-time matchup system.",
-      link: "#"
+      name: "Black N White - Blog Application",
+      tech: ["Java","Spring Boot", "MySQL", "HTML", "CSS", "JavaScript", "Firebase", "GetX"],
+      desc: "Developed a Monolithic blog platform supporting CRUD operations. Optimized data handling with MySQL and REST APIs. Showcased end-to-end development skills from backend to UI. ",
+      link: "https://github.com/AnujLo1c/Black_N_White"
     }
+   
   ];
 
   // Detect mobile

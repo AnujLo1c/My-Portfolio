@@ -3,6 +3,7 @@ import Typed from "typed.js";
 import "./Hero.css";
 import OrbitHero from "../OrbitHero/OrbitHero";
 
+
 export default function Hero() {
   const typingRef = useRef();
 
@@ -46,10 +47,21 @@ export default function Hero() {
         </p>
 
         <div className="social-row">
-          <a href="https://github.com/anujlowanshi" target="_blank"><i className="ri-github-fill"></i></a>
-          <a href="https://linkedin.com/in/anuj-lowanshi" target="_blank"><i className="ri-linkedin-box-fill"></i></a>
-          <a href="#"><i className="ri-instagram-fill"></i></a>
-          <a href="#"><i className="ri-youtube-fill"></i></a>
+          <a href="https://github.com/AnujLo1c" target="_blank"><i className="ri-github-fill"></i></a>
+          <a href="https://www.linkedin.com/in/anuj-lowanshi-a35b9b236/" target="_blank"><i className="ri-linkedin-box-fill"></i></a>
+          <a 
+  href="https://leetcode.com/u/Anuj15_8/" 
+  target="_blank" 
+  className="leetcode-icon"
+>
+  <img 
+    src="/My-Portfolio/leetcode.png" 
+    alt="LeetCode" 
+    className="leetcode-img"
+  />
+</a>
+
+
         </div>
       </div>
     </div>

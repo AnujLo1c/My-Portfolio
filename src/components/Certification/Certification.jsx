@@ -4,28 +4,28 @@ import "./Certification.css";
 export default function Certification() {
   const certs = [
     {
-      title: "Joy of Computing using Python",
-      issuer: "NPTEL",
-      year: "2021",
-      link: "#", // add certificate link
+      title: "MySQL Implementation Certified Associate",
+      issuer: "Oracle",
+      year: "2025",
+      link: "/My-Portfolio/certificates/MySQL.pdf", 
     },
     {
       title: "Cloud Computing",
       issuer: "NPTEL",
       year: "2023",
-      link: "#",
+      link: "/My-Portfolio/certificates/Cloud_Computing.pdf",
     },
     {
-      title: "Java (Basic)",
-      issuer: "LinkedIn",
+      title: "Cloud Computing using AWS",
+      issuer: "Ardent",
       year: "2024",
-      link: "#",
+      link: "/My-Portfolio/certificates/AWS.pdf",
     },
     {
-      title: "SQL (Basic)",
+      title: "Learning Java",
       issuer: "LinkedIn",
       year: "2024",
-      link: "#",
+      link: "/My-Portfolio/certificates/Java.pdf",
     }
   ];
 

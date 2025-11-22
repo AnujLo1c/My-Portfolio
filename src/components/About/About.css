@@ -115,7 +115,7 @@ html[data-theme="neon"] .about-title .underline {
 }
 
 .edu-title {
-  margin: 0;
+  margin: 10px;
 }
 
 .edu-year {
@@ -143,6 +143,9 @@ html[data-theme="neon"] .about-card li {
 
 /* MOBILE: Make Introduction card scrollable */
 @media (max-width: 600px) {
+  .edu-title {
+  margin: 0px;
+}
 .ep-card{
   margin-bottom: 12px;
 }

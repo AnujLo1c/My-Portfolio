@@ -86,6 +86,28 @@
       padding-right: 12px;
   }
 }
+.fa-leetcode {
+  font-size: 24px;
+}
+.leetcode-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  transition: 0.2s ease;
+  
+  filter: brightness(0) invert(1); /* optional for dark/light themes */
+}
+
+.leetcode-img:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+html[data-theme="colorful"] .leetcode-img {
+  filter: invert(0); /* keep black */
+}
+html[data-theme="light"] .leetcode-img {
+  filter: invert(0); /* original color (black stays black) */
+}
 
 /* Mobile layout */
 @media (max-width: 900px) {
