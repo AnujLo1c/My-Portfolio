@@ -70,7 +70,14 @@
   gap: 16px;
   width: 100%;
 }
+.copy-web {
+  display: inline-flex;
+}
 
+/* Mobile version hidden by default */
+.copy-mob {
+  display: none;
+}
 /* Mobile: stack fields */
 @media (max-width: 820px) {
   .row {
@@ -173,6 +180,9 @@ html {
   scroll-padding-top: calc(var(--nav-height) + 14px);
 }
 
+.mob-view button {
+  flex: 1;
+}
 
 
 
@@ -184,6 +194,13 @@ html[data-theme="colorful"] {
    📱 MOBILE LAYOUT — OPTIMIZED FOR 600px AND BELOW
 ============================================================ */
 @media (max-width: 600px) {
+.mob-view {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;        /* space between buttons */
+  justify-content: space-between; /* or center / flex-start */
+  align-items: center;
+}
 
   /* Wrapper */
   .contact-wrapper {
@@ -214,11 +231,13 @@ html[data-theme="colorful"] {
 
   /* Copy button */
   .copy-btn {
-    width: 100%;
-    height: 38px;
-    justify-content: center;
-    font-size: 14px;
-  }
+  display: flex !important;  /* or block */
+  width: 100%;
+  height: 38px;
+  justify-content: center;
+  font-size: 14px;
+}
+
 
   /* Subtitle */
   .contact-sub {
@@ -279,6 +298,7 @@ html[data-theme="colorful"] {
     font-size: 14px;
     padding: 10px 12px;
   }
+
 }
 
 
@@ -309,6 +329,17 @@ html[data-theme="colorful"] {
 
   .actions .btn {
     font-size: 14px;
+    height: 40px;
+  }
+    .copy-web {
+    display: none !important;
+  }
+
+  /* Show mobile button */
+  .copy-mob {
+    display: flex !important;
+    width: 100%;
+    justify-content: center;
     height: 40px;
   }
 }

@@ -156,7 +156,7 @@ export default function Contact() {
 
           <button
             type="button"
-            className="btn small copy-btn"
+            className="btn small copy-btn copy-web"
             onClick={copyMyEmailToClipboard}
           >
             Copy my email
@@ -246,6 +246,7 @@ export default function Contact() {
             <button className="btn primary" type="submit" disabled={sending}>
               {sending ? "Sending..." : "Send Message"}
             </button>
+            <div className="mob-view">
             <button
               type="button"
               className="btn"
@@ -254,6 +255,14 @@ export default function Contact() {
             >
               Reset
             </button>
+            <button
+            type="button"
+            className="btn small copy-btn copy-mob"
+            onClick={copyMyEmailToClipboard}
+          >
+            Copy my email
+          </button>
+            </div>
           </div>
 
           {statusMsg && (
