@@ -15,7 +15,7 @@ export default function Resume() {
       <div className="resume-buttons">
         <a
           className="btn primary"
-          href="/My-Portfolio/public/Anuj_Lowanshi_Resume.pdf"
+          href="/My-Portfolio/Anuj_Lowanshi_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -39,7 +39,7 @@ export default function Resume() {
 
         <a
           className="btn"
-          href="/My-Portfolio/public/Anuj_Lowanshi_Resume.pdf"
+          href="/My-Portfolio/Anuj_Lowanshi_Resume.pdf"
           download
         >
           Download Resume
