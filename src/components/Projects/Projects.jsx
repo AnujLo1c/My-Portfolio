@@ -49,41 +49,49 @@ export default function Projects() {
       <div className="projects-grid">
         {projects.map((p, i) => (
           <div
-            key={i}
-            className={`project-card ${openIndex === i ? "opened" : ""}`}
-            onClick={() => toggleMobile(i)}
-          >
-            <div className="card-content">
-              <h3>{p.name}</h3>
+  key={i}
+  className={`project-card ${openIndex === i ? "opened" : ""}`}
+>
+  <div
+    className="card-content"
+    onClick={() => toggleMobile(i)}
+  >
+    <h3>{p.name}</h3>
 
-              <div className="tags">
-                {p.tech.map((t, idx) => (
-                  <span key={idx}>{t}</span>
-                ))}
-              </div>
+    <div className="tags">
+      {p.tech.map((t, idx) => (
+        <span key={idx}>{t}</span>
+      ))}
+    </div>
 
-              {/* MOBILE EXPAND CONTENT */}
-              <div className="mobile-expand">
-                <p>{p.desc}</p>
+    <div className="mobile-expand">
+      <p>{p.desc}</p>
 
-                <button
-                  className="mobile-github-btn"
-                  onClick={(e) => {
-                    e.stopPropagation(); // prevent closing toggle
-                    window.open(p.link, "_blank");
-                  }}
-                >
-                  View on GitHub →
-                </button>
-              </div>
-            </div>
+      <a
+        href={p.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mobile-github-btn"
+        onClick={(e) => e.stopPropagation()}
+      >
+        View on GitHub →
+      </a>
+    </div>
+  </div>
 
-            {/* DESKTOP ONLY — HOVER OVERLAY */}
-            <div className="overlay">
-              <p>{p.desc}</p>
-              <button className="view-btn">View on GitHub →</button>
-            </div>
-          </div>
+  <div className="overlay">
+    <p>{p.desc}</p>
+    <a
+      href={p.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="view-btn"
+    >
+      View on GitHub →
+    </a>
+  </div>
+</div>
+
         ))}
       </div>
     </div>

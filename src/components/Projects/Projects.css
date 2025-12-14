@@ -113,7 +113,11 @@ html[data-theme="colorful"] .tags span {
 .overlay {
   position: absolute;
   inset: 0;
-  padding: 22px;
+  
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-top: 15px;
+  padding-bottom: 12px;
   background: rgba(0,0,0,0.75);
   color: white;
   opacity: 0;
@@ -132,7 +136,7 @@ html[data-theme="colorful"] .tags span {
 
 /* GitHub button */
 .view-btn {
-  padding: 8px 14px;
+  padding: 8px 14px ;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -140,6 +144,9 @@ html[data-theme="colorful"] .tags span {
   color: white;
   font-weight: 600;
   width: fit-content;
+}
+.view-btn:hover{
+  color: white;
 }
 
 html[data-theme="neon"] .overlay {
